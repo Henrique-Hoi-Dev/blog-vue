@@ -18,9 +18,9 @@
           <input class="input__field" type="text" placeholder=" " v-model="usuario.email"/>
           <span class="input__label">Email</span>
         </label>
-      </div>
-      <div class="form-button">
-        <b-button variant="dark" @click="salvar()">Enviar</b-button>                     
+        <div class="form-button">
+          <b-button variant="dark" @click="salvar()">Enviar</b-button>                     
+        </div>
       </div>
   </div>
 </template>
@@ -111,7 +111,7 @@ h1 {
   }
 }
 .form-button {
-  margin: -60px;
+  margin: 10px;
 }
 button {
   width: 500px
