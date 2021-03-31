@@ -125,7 +125,6 @@ $gray: #9b9b9b;
 }
 .form-button {
   margin: 10px;
-  display: flex;
 }
 button {
   width: 200px

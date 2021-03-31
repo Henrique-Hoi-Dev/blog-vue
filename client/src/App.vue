@@ -2,16 +2,20 @@
   <div id="app">
     <div id="nav">
       <Menu></Menu>
-    </div>
+    </div>   
     <router-view />
+    <div id="footer">
+      <Footer/>
+    </div>
   </div>
 </template>
 
 <script>
 import Menu from '@/components/Menu.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
-  components: { Menu }
+  components: { Menu, Footer }
 }
 </script>
 
@@ -19,6 +23,7 @@ export default {
 <style >
 body{
   background-color: #f0efe7 !important;
+  
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -41,5 +46,12 @@ body{
 }
 .b-sidebar:not(.b-sidebar-right) {
   max-width: 200px;
+}
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 250px;
+  background-color: #333;
 }
 </style>
