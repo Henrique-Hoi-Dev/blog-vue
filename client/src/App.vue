@@ -1,19 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="menu">
       <Menu></Menu>
     </div>   
+    <div id="nav">
     <router-view />
+    </div>
     <div id="footer">
-      <Footer/>
+      <Footer />  
     </div>
   </div>
 </template>
 
 <script>
 import Menu from '@/components/Menu.vue';
-import Footer from '@/components/Footer.vue';
-
+import Footer from '@/components/Footer.vue'
 export default {
   components: { Menu, Footer }
 }
@@ -21,9 +22,9 @@ export default {
 
 
 <style >
-body{
+body, html { 
   background-color: #f0efe7 !important;
-  
+  height: 100%;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -34,6 +35,7 @@ body{
 }
 #nav {
   margin: 20px;
+  height: 100%;
 }
 #nav a {
   font-weight: bold;
@@ -48,10 +50,14 @@ body{
   max-width: 200px;
 }
 #footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 250px;
-  background-color: #333;
+  bottom:0;
+  width:100%;
+  padding-top:20px;
+  margin-top: 220px;
+  color:white;
+  background-color:#292354;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 </style>
