@@ -17,14 +17,17 @@
             ></b-form-textarea>
     </div>
       <div class="form-button">
-        <b-button variant="dark" @click="salvar()">Enviar</b-button>                     
+        <b-button variant="dark" @click="salvarText(), makeToast('success')">Enviar</b-button>                     
       </div>
   </div>
 </template>
 
 <script>
+import mixinApp from '@/mixinApp'
 
 export default {
+  mixins: [ mixinApp ],
+
   data() {
     return {
       usuario: {
@@ -33,20 +36,6 @@ export default {
       }
     }
   },
-  methods: {
-    limpar() {
-			this.usuario.name = ''
-			this.usuario.text = ''
-		},
-    salvar() {
-			this.$http.post('/textUser/new', this.usuario)
-				.then(() => {
-					this.limpar(),
-					this.usuario.name = ''
-					this.usuario.text = ''
-      })
-    }  
-  }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

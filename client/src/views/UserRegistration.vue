@@ -19,14 +19,17 @@
           <span class="input__label">Email</span>
         </label>
         <div class="form-button">
-          <b-button variant="dark" @click="salvar()">Enviar</b-button>                     
+          <b-button variant="dark" @click="salvar(), makeToast('success')" >Enviar</b-button>                     
         </div>
       </div>
   </div>
 </template>
 
 <script>
+import mixinApp from '@/mixinApp'
+
 export default {
+  mixins: [ mixinApp ],
   data() {
       return {
         usuario: {
@@ -37,24 +40,7 @@ export default {
         }
       }
     },
-    methods: {
-      limpar() {
-        this.usuario.first_name = ''
-        this.usuario.sur_name = ''
-        this.usuario.data_nascimento = ''
-        this.usuario.email = ''
-      },
-      salvar() {
-        this.$http.post('/user/new', this.usuario)
-          .then(() => {
-            this.limpar(),
-            this.usuario.first_name = ''
-            this.usuario.sur_name = ''
-            this.usuario.data_nascimento = ''
-            this.usuario.email = ''
-        })
-      }  
-    }
+    
 }
 </script>
 
