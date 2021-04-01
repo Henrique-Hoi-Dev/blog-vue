@@ -100,6 +100,6 @@ h1 {
   margin: 10px;
 }
 button {
-  width: 500px
+  width: 10rem;
 }
 </style>

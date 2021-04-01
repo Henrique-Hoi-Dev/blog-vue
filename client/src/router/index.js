@@ -1,20 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Text from "../views/Text.vue";
-import Home from "../views/Home.vue";
+import TextUser from "../views/UserText.vue";
+import HomeList from "../views/HomeList.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "HomeList",
+    component: HomeList,
   },
   {
     path: "/user/text",
-    name: "Text",
-    component: Text,
+    name: "TextUser",
+    component: TextUser,
   },
   {
     path: "/user/registration",

@@ -6,6 +6,7 @@ class TextUserController {
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required().max(100),
+      text: Yup.string().required().max(700),
     });
 
     if (!(await schema.isValid(req.body))) {

@@ -1,8 +1,8 @@
 export default {
   methods: {
     makeToast(variant = null) {
-      this.$bvToast.toast('Registrado com sucesso', {
-        title: `Variant ${variant || 'default'}`,
+      this.$bvToast.toast('Texto foi publicado', {
+        title: `${variant || 'default'}`,
         variant: variant,
         solid: true
       })
