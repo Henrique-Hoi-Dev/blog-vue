@@ -1,27 +1,45 @@
 <template>
-  <!-- Footer -->
   <mdb-footer color="indigo" class="font-small pt-0">
     <mdb-container>
       <mdb-row>
         <mdb-col md="12">
-          <div class="mb-5 flex-center">
-            <a class="fb-ic"><i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
-            <a class="tw-ic"><i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
-            <a class="gplus-ic"><i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
-            <a class="li-ic"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
-            <a class="ins-ic"><i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
-            <a class="pin-ic"><i class="fab fa-pinterest fa-lg white-text fa-2x"> </i></a>
+          <div class="form-icons">      
+            <li>
+              <a href="https://www.facebook.com/henrique.hoinacki" style="color:#fff" >
+              <b-icon icon="facebook"  scale="2" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Henrique-Hoi-Dev"  style="color:#fff">
+                <b-icon icon="github"  scale="2" aria-hidden="true" />
+              </a>  
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/henrique-hoinacki-a98b851a5/" style="color:#fff">
+                <b-icon icon="linkedin"  scale="2" aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+            <a href="https://henrique-hoi-dev.github.io/portfolio/">henrique-hoi-dev.github.io/portfolio</a>
+            </li>
           </div>
         </mdb-col>
+        <mdb-col md="12">
+          <div class="form-icons">
+            <li>
+                <b-icon icon="envelope"  scale="2" aria-hidden="true" /> riqueah@gmail.com
+            </li>
+            <li>
+                <b-icon icon="telephone"  scale="2" aria-hidden="true" /> 55 (46) 9 9119-5068 
+            </li>
+          </div>
+        </mdb-col >
       </mdb-row>
     </mdb-container>
-    <div class="footer-copyright text-center py-3">
-      <mdb-container fluid>
-        &copy; 2021 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-      </mdb-container>
-    </div>
+      <div class="footer-copyright text-center py-3">
+          &copy; 2021 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+      </div>
   </mdb-footer>
-  <!-- Footer -->
 </template>
 
 <script>
@@ -38,6 +56,24 @@ export default {
 </script>
 
 <style scoped>
-
-
+li {
+  margin: 30px;
+  list-style-type: none;
+}
+svg {
+  margin-right: 10px;
+}
+.form-icons {
+  display: flex;
+  flex-direction: row;
+}
+.pt-0, .py-0 {
+    padding-top: 0!important;
+    width: 100%;
+}
+footer.page-footer .footer-copyright {
+    overflow: hidden;
+    color: rgba(255,255,255,0.6);
+    background-color: rgba(0,0,0,0.2);
+}
 </style>

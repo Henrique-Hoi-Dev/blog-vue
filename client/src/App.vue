@@ -35,7 +35,6 @@ body, html {
 }
 #nav {
   margin: 20px;
-  height: 100%;
 }
 #nav a {
   font-weight: bold;
@@ -55,7 +54,7 @@ body, html {
   padding-top:20px;
   margin-top: 220px;
   color:white;
-  background-color:#292354;
+  background-color:#3e4551 !important;
   display:flex;
   flex-direction:column;
   align-items:center;
