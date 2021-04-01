@@ -3,14 +3,9 @@
     <h1>Histórias</h1>
     <div v-for="text in data" :key="text.id" class="nav">
     <h4>Titulo: {{ text.name }}</h4>
-      <p>
-        <ul>
-          <li>
-            {{ text.text }}
-          </li>
-        </ul>
-      </p>
-        
+        <p>
+        {{ text.text }}
+        </p>
     </div>
   </div>
   
@@ -41,18 +36,17 @@ export default {
 
 <style scoped>
 .nav {
-  display: flex;
+  display: grid;
   flex-direction: column;
 
   margin: 10px;
   align-items: center;
 }
 p {
-  margin: 10px;
-  display: flex;
+  margin: 10px 80px;
 
   font-family: cursive;
-  font-weight: bold;
+  align-self: flex-start;
 }
 h1 {
   font-weight: 700;
