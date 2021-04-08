@@ -5,22 +5,22 @@
         <mdb-col md="12">
           <div class="form-icons">      
             <li>
-              <a href="https://www.facebook.com/henrique.hoinacki" style="color:#fff" >
+              <a href="https://www.facebook.com/henrique.hoinacki" target="_blank" style="color:#fff" >
               <b-icon icon="facebook"  scale="2" aria-hidden="true" />
               </a>
             </li>
             <li>
-              <a href="https://github.com/Henrique-Hoi-Dev"  style="color:#fff">
+              <a href="https://github.com/Henrique-Hoi-Dev" target="_blank"  style="color:#fff">
                 <b-icon icon="github"  scale="2" aria-hidden="true" />
               </a>  
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/henrique-hoinacki-a98b851a5/" style="color:#fff">
+              <a href="https://www.linkedin.com/in/henrique-hoinacki-a98b851a5/"  target="_blank" style="color:#fff">
                 <b-icon icon="linkedin"  scale="2" aria-hidden="true" />
               </a>
             </li>
             <li>
-            <a href="https://henrique-hoi-dev.github.io/portfolio/">henrique-hoi-dev.github.io/portfolio</a>
+            <a href="https://henrique-hoi-dev.github.io/portfolio/" target="_blank">henrique-hoi-dev.github.io/portfolio</a>
             </li>
           </div>
         </mdb-col>

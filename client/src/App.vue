@@ -3,8 +3,8 @@
     <div id="menu">
       <Menu></Menu>
     </div>   
-    <div id="nav">
-    <router-view />
+    <div id="nav">    
+    <router-view />   
     </div>
     <div id="footer">
       <Footer />  

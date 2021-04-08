@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
           <h1>Sua História</h1>
-    <div class="input-msg">        
+    <div class="input-msg animate__animated animate__fadeInDown">        
             <div class="form__group field">
               <input type="input"
                      v-model="usuario.name" 

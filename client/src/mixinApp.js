@@ -12,16 +12,23 @@ export default {
       this.usuario.sur_name = ''
       this.usuario.data_nascimento = ''
       this.usuario.email = ''
+      this.usuario.avatar_id = ''
     },
     salvarUsers() {
-      this.$http.post('/user/new', this.usuario)
-        .then(() => {
-          this.limparUser(),
-          this.usuario.first_name = ''
-          this.usuario.sur_name = ''
-          this.usuario.data_nascimento = ''
-          this.usuario.email = ''
-      })
+      try {
+          this.$http.post('/user/new', this.usuario)
+          .then(() => {
+            this.limparUser(),
+            this.usuario.first_name = ''
+            this.usuario.sur_name = ''
+            this.usuario.data_nascimento = ''
+            this.usuario.email = ''
+            this.usuario.avatar_id = ''
+        })
+      } catch (error) {
+        console.log('errro', error)
+      }
+      
     },
     limparText() {
 			this.usuario.name = ''

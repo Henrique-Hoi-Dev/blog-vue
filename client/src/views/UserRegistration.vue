@@ -1,7 +1,23 @@
 <template>
   <div>
       <h1>Registro</h1>
-      <div class="form-register">
+      <div class="form-register animate__animated animate__fadeInDown">
+              <div>
+                <div
+                  class="imagePreviewWrapper"
+                  :style="{ 'background-image': `url(${usuario.avatar_id})` }"
+                  @click="selectImage">
+                </div>
+
+                <input
+                  class="avatar"
+                  accept="image/*"
+                  ref="fileInput"
+                  type="file"
+                  @input="pickFile"
+                  @change="onSelect($event)">
+              </div>
+
         <label class="input" >
           <input class="input__field" type="text" placeholder=" " v-model="usuario.first_name"/>
           <span class="input__label">Nome</span>
@@ -11,7 +27,7 @@
           <span class="input__label">Sobrenome</span>
         </label>
         <label class="input" >
-          <input class="input__field" type="date" placeholder=" " v-model="usuario.data_nascimento"/>
+          <input class="input__field" type="text" placeholder=" " max="10" v-mask="'##/##/####'" v-model="usuario.data_nascimento"/>
           <span class="input__label">Data de Nascimento</span>
         </label>
         <label class="input" >
@@ -19,9 +35,9 @@
           <span class="input__label">Email</span>
         </label>
         <div class="form-button">
-          <b-button variant="dark" @click="salvar(), makeToast('success')" >Enviar</b-button>                     
+          <b-button variant="dark" @click="salvarUsers(), makeToast('success')" >Enviar</b-button>                     
         </div>
-      </div>
+      </div>      
   </div>
 </template>
 
@@ -33,14 +49,52 @@ export default {
   data() {
       return {
         usuario: {
-          first_name: '',
-          sur_name: '',
-          data_nascimento: '',
-          email: ''
+          first_name: 'Henrique',
+          sur_name: 'Hoinacki',
+          data_nascimento: '20/12/1994',
+          email: 'riqueah@gmail.com',
+          avatar_id: null
         }
-      }
+      }      
     },
-    
+    methods: {
+      selectImage () {
+          this.$refs.fileInput.click()
+      },
+      pickFile () {
+        let input = this.$refs.fileInput
+
+        let file = input.files
+
+        if (file && file[0]) {
+          let reader = new FileReader
+          reader.onload = e => {
+            this.usuario.avatar_id = e.target.result
+          }
+          reader.readAsDataURL(file[0])
+          this.$emit('input', file[0])
+        }
+      },
+      onSelect(e) {
+          this.usuario.avatar_id = e.target.files[0]
+          console.log(this.usuario.avatar_id)
+      },
+       async onSubmit() {
+        const data = new FormData();
+        data.append('file', this.usuario.avatar_id )
+        console.log(data)
+
+        try {
+          await this.$http.post('/files', data, {
+            onUploadProgress: progressEvent => {
+              console.log(progressEvent.loaded / progressEvent.total)
+       }
+      }) } catch (err) {
+
+          console.log(err)
+        }
+      } 
+    }  
 }
 </script>
 
@@ -101,5 +155,21 @@ h1 {
 }
 button {
   width: 10rem;
+}
+.imagePreviewWrapper {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto 30px;
+
+    border: 2px solid #333;
+    border-radius: 1rem;
+
+    cursor: pointer;
+    background-size: cover;
+    background-position: center center;
+}
+.avatar  {
+  display: none;
 }
 </style>
