@@ -1,7 +1,8 @@
 <template>
   <div class="form-list">
     <h1>Histórias</h1>
-    <div class="w3-container"  v-for="text in data" :key="text.id">
+    
+    <div class="w3-container animate__animated animate__fadeInDown"  v-for="text in data" :key="text.id">
       <ul class="w3-ul w3-card-4">
         <li class="w3-bar">
           <img src="../assets/avatar.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
@@ -33,7 +34,6 @@ export default {
       const res = await fetch('http://localhost:3000/textUser');
       const data = await res.json();
       this.data = data;
-      console.log(data)
     }
   },
 }
@@ -59,7 +59,6 @@ ul {
 .w3-ul {
     list-style-type: none;
     padding: 0;
-    /* margin: 0; */
 } 
 .w3-ul li {
     padding: 8px 16px;
