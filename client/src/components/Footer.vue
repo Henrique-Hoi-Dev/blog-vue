@@ -68,12 +68,12 @@ svg {
   flex-direction: row;
 }
 .pt-0, .py-0 {
-    padding-top: 0!important;
-    width: 100%;
+  padding-top: 0!important;
+  width: 100%;
 }
 footer.page-footer .footer-copyright {
-    overflow: hidden;
-    color: rgba(255,255,255,0.6);
-    background-color: rgba(0,0,0,0.2);
+  overflow: hidden;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.2);
 }
 </style>

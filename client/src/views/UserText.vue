@@ -1,20 +1,20 @@
 <template>
   <div class="hello">
-          <h1>Sua História</h1>
+      <h1>Sua História</h1>
     <div class="input-msg animate__animated animate__fadeInDown">        
-            <div class="form__group field">
-              <input type="input"
-                     v-model="usuario.name" 
-                     class="form__field" 
-                     placeholder="Name" name="name" id='name' required />
-              <label for="name" class="form__label">Titulo</label>
-            </div>
-            <b-form-textarea
-              id="textarea-large"
-              size="lg"
-              placeholder="Escreva sua historia"
-              v-model="usuario.text"
-            ></b-form-textarea>
+          <div class="form__group field">
+            <input type="input"
+              v-model="usuario.name" 
+              class="form__field" 
+              placeholder="Name" name="name" id='name' required />
+            <label for="name" class="form__label">Titulo</label>
+          </div>
+        <b-form-textarea
+          id="textarea-large"
+          size="lg"
+          placeholder="Escreva sua historia"
+          v-model="usuario.text">
+        </b-form-textarea>
     </div>
       <div class="form-button">
         <b-button variant="dark" @click="salvarText(), makeToast('success')">Enviar</b-button>                     
