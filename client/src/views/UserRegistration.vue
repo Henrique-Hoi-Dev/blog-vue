@@ -74,14 +74,14 @@ export default {
       async onSelect(event) {
         let formData = new FormData();
           formData.append('file', event.target.files[0])
-        let res = await fetch('http://localhost:3000/files', {
+        let res = await fetch('http://localhost:3333/files', {
         method: 'POST',
         body: formData,
         });
         let data = await res.json();
         this.data = data;
 
-        this.usuario.avatar_id = data.id
+        this.usuario.avatar_id = data.id        
       }, 
       /*eslint no-mixed-spaces-and-tabs: ["error", "smart-tabs"]*/
       limparUser() {
