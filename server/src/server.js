@@ -1,4 +1,4 @@
-import app from './app';
+import app from './app.js';
 
-console.log("server running",3000)
-app.listen(3000);
+console.log("server running",3333)
+app.listen(3333);

@@ -7,6 +7,7 @@ import VMask from 'v-mask'
 import "./registerServiceWorker";
 import './plugins/bootstrap-vue';
 import './plugins/axios';
+import './plugins/toasted';
 
 Vue.use(VMask);
 Vue.config.productionTip = false;

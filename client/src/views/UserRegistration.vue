@@ -2,22 +2,20 @@
   <div>
       <h1>Registro</h1>
       <div class="form-register animate__animated animate__fadeInDown">
-              <div>
-                <div
-                  class="imagePreviewWrapper"
-                  :style="{ 'background-image': `url(${usuario.avatar_id})` }"
-                  @click="selectImage">
-                </div>
-
-                <input
-                  class="avatar"
-                  accept="image/*"
-                  ref="fileInput"
-                  type="file"
-                  @input="pickFile"
-                  @change="onSelect($event)">
-              </div>
-
+        <div>
+          <div
+            class="imagePreviewWrapper"
+            :style="{ 'background-image': `url(${avatar})` }"
+            @click="selectImage">
+          </div>
+          <input
+            class="avatar"
+            accept="image/*"
+            ref="file"
+            type="file"
+            @input="pickFile"
+            @change="onSelect">
+          </div>
         <label class="input" >
           <input class="input__field" type="text" placeholder=" " v-model="usuario.first_name"/>
           <span class="input__label">Nome</span>
@@ -35,65 +33,75 @@
           <span class="input__label">Email</span>
         </label>
         <div class="form-button">
-          <b-button variant="dark" @click="salvarUsers(), makeToast('success')" >Enviar</b-button>                     
+          <b-button variant="dark" @click="salvarUsers()">Enviar</b-button>                     
         </div>
       </div>      
   </div>
 </template>
 
 <script>
-import mixinApp from '@/mixinApp'
 
 export default {
-  mixins: [ mixinApp ],
   data() {
       return {
+        avatar: null,
         usuario: {
-          first_name: 'Henrique',
-          sur_name: 'Hoinacki',
-          data_nascimento: '20/12/1994',
-          email: 'riqueah@gmail.com',
+          first_name: '',
+          sur_name: '',
+          data_nascimento: '',
+          email: '',
           avatar_id: null
         }
       }      
     },
     methods: {
-      selectImage () {
-          this.$refs.fileInput.click()
+      selectImage() {
+          this.$refs.file.click()
       },
-      pickFile () {
-        let input = this.$refs.fileInput
-
+      pickFile() {
+        let input = this.$refs.file
         let file = input.files
 
         if (file && file[0]) {
           let reader = new FileReader
           reader.onload = e => {
-            this.usuario.avatar_id = e.target.result
+            this.avatar = e.target.result
           }
           reader.readAsDataURL(file[0])
           this.$emit('input', file[0])
         }
       },
-      onSelect(e) {
-          this.usuario.avatar_id = e.target.files[0]
-          console.log(this.usuario.avatar_id)
-      },
-       async onSubmit() {
-        const data = new FormData();
-        data.append('file', this.usuario.avatar_id )
-        console.log(data)
+      async onSelect(event) {
+        let formData = new FormData();
+          formData.append('file', event.target.files[0])
+        let res = await fetch('http://localhost:3333/files', {
+        method: 'POST',
+        body: formData,
+        });
+        let data = await res.json();
+        this.data = data;
 
-        try {
-          await this.$http.post('/files', data, {
-            onUploadProgress: progressEvent => {
-              console.log(progressEvent.loaded / progressEvent.total)
-       }
-      }) } catch (err) {
-
-          console.log(err)
-        }
-      } 
+        this.usuario.avatar_id = data.id        
+      }, 
+      /*eslint no-mixed-spaces-and-tabs: ["error", "smart-tabs"]*/
+      limparUser() {
+        this.usuario.first_name = ''
+        this.usuario.sur_name = ''
+        this.usuario.data_nascimento = ''
+        this.usuario.email = ''
+        this.avatar = ''
+		  },
+      salvarUsers() { 
+        this.$http.post('/user/new', this.usuario)
+				.then(() => {
+          this.limparUser(),
+          this.usuario.first_name = ''
+          this.usuario.sur_name = ''
+          this.usuario.data_nascimento = ''
+          this.usuario.email = ''
+          this.usuario.avatar_id = ''
+        })
+      }
     }  
 }
 </script>

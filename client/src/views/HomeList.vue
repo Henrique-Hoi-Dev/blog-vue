@@ -30,8 +30,7 @@ export default {
   },
     methods: { 
     async getText() {
-      
-      const res = await fetch('http://localhost:3000/textUser');
+      const res = await fetch('http://localhost:3333/textUser');
       const data = await res.json();
       this.data = data;
     }
